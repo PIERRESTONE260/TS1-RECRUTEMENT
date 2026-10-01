@@ -4,6 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Recrutement | Tech-Stone One</title>
+        <meta name="description"
+            content="Tech-Stone One : développement web, design et IoT. Découvrez nos projets et postulez pour rejoindre l'équipe ou devenir partenaire.">
+        <meta name="theme-color" content="#05080f">
+        <link rel="icon"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🪨%3C/text%3E%3C/svg%3E">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="fr_FR">
+        <meta property="og:title" content="Recrutement | Tech-Stone One">
+        <meta property="og:description"
+            content="Développement web, design et IoT. Rejoignez l'équipe ou devenez partenaire.">
+        <!-- Remplace par l'adresse complète de ton image une fois le site en ligne (ex : https://tonsite.com/logo.png, idéalement 1200x630) -->
+        <meta property="og:image" content="logo.svg">
+        <meta name="twitter:card" content="summary_large_image">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
@@ -136,6 +151,87 @@
         .btn-final { background: #ea4335; color: white; padding: 20px; border-radius: 15px; font-weight: 700; width: 100%; border: none; cursor: pointer; font-size: 1.1rem; }
 
         .close-modal { float: right; cursor: pointer; font-size: 1.5rem; color: var(--text-dim); }
+
+        /* ===== AMÉLIORATIONS ===== */
+        html { scroll-behavior: smooth; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,212,255,0.15); }
+        .hero h1 { font-size: clamp(1.8rem, 6vw, 3rem); }
+        .slide-content { text-shadow: 0 2px 8px rgba(0,0,0,0.7); right: 30px; }
+        .slider-dots { position: absolute; bottom: 12px; right: 20px; display: flex; gap: 8px; z-index: 5; }
+        .slider-dots button { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--accent); background: transparent; cursor: pointer; padding: 0; }
+        .slider-dots button.active { background: var(--accent); }
+        .btn-apply, .btn-final, .switch-btn { transition: transform 0.2s, filter 0.2s, background 0.3s; }
+        .btn-apply:hover, .btn-final:hover { filter: brightness(1.12); transform: translateY(-2px); }
+        .switch-btn:hover:not(.active) { border-color: var(--accent); }
+        .team-track { scroll-snap-type: x mandatory; }
+        .team-card { scroll-snap-align: start; }
+        .close-modal { padding: 4px; }
+        .close-modal:hover { color: var(--accent); }
+        @media (max-width: 640px) {
+            .header { padding: 18px 5%; }
+            .slider-container { height: 300px; }
+            .slide-content h3 { font-size: 1.3rem; }
+            .switcher { flex-direction: column; align-items: stretch; padding: 0 20px; gap: 12px; }
+            .job-card { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .job-card .btn-apply { width: 100%; }
+            .modal-content { padding: 25px 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+        }
+
+        /* ===== HAMBURGER & NOUVELLES SECTIONS ===== */
+        #projets, #equipe, #postuler, #etapes, #faq, #contact { scroll-margin-top: 100px; }
+        .menu { display: flex; gap: 28px; }
+        .menu a { color: var(--text-dim); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .menu a:hover { color: var(--accent); }
+        .burger { display: none; background: none; border: 1px solid var(--border); border-radius: 10px; width: 46px; height: 46px; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+        .burger span { width: 22px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; }
+        .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .burger.open span:nth-child(2) { opacity: 0; }
+        .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        @media (max-width: 768px) {
+            .burger { display: flex; }
+            .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: rgba(5, 8, 15, 0.97); border-bottom: 1px solid var(--border); }
+            .menu.open { display: flex; }
+            .menu a { padding: 18px 5%; border-top: 1px solid var(--border); }
+        }
+        .job-meta { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: 0.8rem; color: var(--text-dim); }
+        .job-meta b { color: var(--text-main); font-weight: 600; }
+        .extra { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; }
+        .extra h2 { font-family: 'Space Grotesk'; margin-bottom: 20px; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .step { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 25px; }
+        .step i { color: var(--accent); font-size: 1.6rem; margin-bottom: 12px; }
+        .step h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .step p, .faq-item p { color: var(--text-dim); font-size: 0.9rem; }
+        .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 15px; padding: 18px 22px; margin-bottom: 12px; }
+        .faq-item summary { cursor: pointer; font-weight: 600; }
+        .faq-item[open] { border-color: var(--accent); }
+        .faq-item p { margin-top: 10px; }
+        .footer-grid { max-width: 1100px; margin: 60px auto 0; padding: 0 20px 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .footer-grid h4 { margin-bottom: 10px; }
+        .footer-grid a, .footer-grid p { color: var(--text-dim); font-size: 0.9rem; text-decoration: none; display: block; margin-bottom: 6px; }
+        .footer-grid a:hover { color: var(--accent); }
+        .footer-grid i { color: var(--accent); width: 22px; }
+        .wa-float { position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.9rem; text-decoration: none; z-index: 900; box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: transform 0.2s; }
+        .wa-float:hover { transform: scale(1.08); }
+
+        /* ===== SERVICES, AVANTAGES, RÉSEAUX, CONSENTEMENT ===== */
+        #apropos, #avantages { scroll-margin-top: 100px; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+        .card-info { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 25px; transition: transform 0.2s, border-color 0.2s; }
+        .card-info:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .card-info i { color: var(--accent); font-size: 1.7rem; margin-bottom: 12px; }
+        .card-info h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .card-info p, .intro { color: var(--text-dim); font-size: 0.92rem; }
+        .intro { margin-bottom: 20px; max-width: 700px; }
+        .socials { display: flex; gap: 14px; margin-top: 12px; }
+        .socials a { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; display: flex !important; align-items: center; justify-content: center; margin: 0 !important; }
+        .socials a i { width: auto; }
+        .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.8rem; color: var(--text-dim); margin: 15px 0; }
+        .consent input { width: auto; margin-top: 3px; }
     </style>
     </head>
     <body>
@@ -146,6 +242,19 @@
                 <span style="font-weight: 700; font-size: 1.2rem;">TECH-STONE
                     ONE</span>
             </a>
+            <nav class="menu" id="menu" aria-label="Navigation principale">
+                <a href="#apropos">À propos</a>
+                <a href="#projets">Projets</a>
+                <a href="#equipe">Équipe</a>
+                <a href="#postuler">Postuler</a>
+                <a href="#avantages">Avantages</a>
+                <a href="#etapes">Étapes</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="burger" id="burger" aria-label="Ouvrir le menu"
+                aria-expanded="false"
+                aria-controls="menu"><span></span><span></span><span></span></button>
         </header>
 
         <section class="hero">
@@ -153,9 +262,36 @@
             <h1>L'Innovation au Cœur de la Pierre</h1>
         </section>
 
+        <!-- QUI SOMMES-NOUS / SERVICES (textes d'exemple à adapter) -->
+        <section class="extra" id="apropos" style="margin-top:50px;">
+            <h2>Qui sommes-nous ?</h2>
+            <p class="intro">Tech-Stone One conçoit des solutions numériques et
+                technologiques sur mesure pour les entreprises et les
+                particuliers.</p>
+            <div class="cards">
+                <div class="card-info"><i
+                        class="fas fa-code"></i><h3>Développement
+                        web</h3><p>Sites vitrines, applications et plateformes
+                        adaptées à votre activité.</p></div>
+                <div class="card-info"><i
+                        class="fas fa-pen-ruler"></i><h3>Design &amp;
+                        identité</h3><p>Logos, cartes, badges NFC et supports de
+                        communication.</p></div>
+                <div class="card-info"><i class="fas fa-microchip"></i><h3>IoT
+                        &amp; électronique</h3><p>Diagnostic, prototypes Arduino
+                        et objets connectés.</p></div>
+            </div>
+        </section>
+
         <!-- SLIDER PROJETS -->
-        <div class="slider-section">
+        <div class="slider-section" id="projets">
             <div class="slider-container">
+                <div class="slider-dots" role="group"
+                    aria-label="Choisir une diapositive">
+                    <button aria-label="Diapositive 1" class="active"></button>
+                    <button aria-label="Diapositive 2"></button>
+                    <button aria-label="Diapositive 3"></button>
+                </div>
                 <div class="slide-track" id="mainSlider">
                     <div class="slide">
                         <img
@@ -196,29 +332,38 @@
         </div>
 
         <!-- ÉQUIPE SLIDER -->
-        <div class="team-section">
+        <div class="team-section" id="equipe">
             <h2
                 style="font-family: 'Space Grotesk'; margin-bottom: 20px;">L'Équipe
                 d'Élite</h2>
             <div class="team-track">
                 <!-- pierre stone -->
                 <div class="team-card">
-                    <img src="/equipe/PDG.jpeg" class="team-img">
+                    <!-- ancien chemin : /equipe/PDG.jpeg -->
+                    <img src="equipe/PDG.jpeg" class="team-img"
+                        alt="Photo de NGOY WA BANZA Pierre" loading="lazy"
+                        onerror="this.onerror=null;this.src='logo.svg'">
                     <h4>NGOY WA BANZA Pierre</h4>
                     <span>Lead Développeur</span>
                     <p>Expert en programmation web (HTML, CSS, JS, JSON).</p>
                 </div>
                 <!-- guy arthur -->
                 <div class="team-card">
-                    <img src="/equipe/DG.jpeg" class="team-img">
+                    <!-- ancien chemin : /equipe/DG.jpeg -->
+                    <img src="equipe/DG.jpeg" class="team-img"
+                        alt="Photo de Guy Arthur" loading="lazy"
+                        onerror="this.onerror=null;this.src='logo.svg'">
                     <h4>Guy Arthur</h4>
                     <span>Technicien Embarqué</span>
                     <p>Spécialiste en diagnostic et solutions IoT.(Arduino,
                         python, C)</p>
                 </div>
                 <!-- ben -->
-                 <div class="team-card">
-                    <img src="/equipe/" class="team-img">
+                <div class="team-card">
+                    <!-- ancien chemin : /equipe/DM..jpeg -->
+                    <img src="equipe/DM..jpeg" class="team-img"
+                        alt="Photo de Ben Kahasha" loading="lazy"
+                        onerror="this.onerror=null;this.src='logo.svg'">
                     <h4>Ben Kahasha</h4>
                     <span>Stratégie marketing</span>
                     <p>Architecte...</p>
@@ -227,7 +372,7 @@
             </div>
         </div>
 
-        <div class="incitation">
+        <div class="incitation" id="postuler">
             <h2>Prêt à poser votre pierre à l'édifice ?</h2>
             <p style="color:var(--text-dim)">Nous cherchons des
                 visionnaires.</p>
@@ -247,7 +392,11 @@
                     <div class="job-info"><span
                             class="job-tag">Digital</span><h3>Développeur</h3><p
                             style="color:var(--text-dim); font-size:0.9rem;">Front-End
-                            et Back-End.</p></div>
+                            et Back-End.</p>
+                        <ul class="job-meta"><li><b>Contrat :</b> Stage / CDD /
+                                Freelance</li><li><b>Lieu :</b> Présentiel ou à
+                                distance</li><li><b>Compétences :</b> HTML, CSS,
+                                JavaScript, API</li></ul></div>
                     <button class="btn-apply"
                         onclick="openModal('Emploi : Développeur')">Postuler</button>
                 </div>
@@ -256,7 +405,11 @@
                             class="job-tag">Design</span><h3>Designer UI/UX &
                             Print</h3><p
                             style="color:var(--text-dim); font-size:0.9rem;">Identité
-                            et badges NFC.</p></div>
+                            et badges NFC.</p>
+                        <ul class="job-meta"><li><b>Contrat :</b> Stage / CDD /
+                                Freelance</li><li><b>Lieu :</b> Présentiel ou à
+                                distance</li><li><b>Compétences :</b> Figma,
+                                Illustrator, maquettes print</li></ul></div>
                     <button class="btn-apply"
                         onclick="openModal('Emploi : Designer UI/UX')">Postuler</button>
                 </div>
@@ -265,7 +418,11 @@
                             class="job-tag">IOT</span><h3>Technicien
                             Embarqué</h3><p
                             style="color:var(--text-dim); font-size:0.9rem;">Diagnostic
-                            et solutions IoT.</p></div>
+                            et solutions IoT.</p>
+                        <ul class="job-meta"><li><b>Contrat :</b> Stage /
+                                CDD</li><li><b>Lieu :</b>
+                                Présentiel</li><li><b>Compétences :</b> Arduino,
+                                C, Python</li></ul></div>
                     <button class="btn-apply"
                         onclick="openModal('Emploi : Technicien Embarqué')">Postuler</button>
                 </div>
@@ -291,28 +448,104 @@
             </div>
         </div>
 
+        <!-- POURQUOI NOUS REJOINDRE (avantages d'exemple à confirmer) -->
+        <section class="extra" id="avantages">
+            <h2>Pourquoi nous rejoindre ?</h2>
+            <div class="cards">
+                <div class="card-info"><i
+                        class="fas fa-graduation-cap"></i><h3>Apprendre</h3><p>Un
+                        encadrement par des professionnels et des formations
+                        pratiques.</p></div>
+                <div class="card-info"><i
+                        class="fas fa-diagram-project"></i><h3>Vrais
+                        projets</h3><p>Vous travaillez sur des projets réels,
+                        pas seulement des exercices.</p></div>
+                <div class="card-info"><i
+                        class="fas fa-certificate"></i><h3>Certificat</h3><p>Une
+                        attestation de stage ou d'expérience à la fin de la
+                        mission.</p></div>
+                <div class="card-info"><i
+                        class="fas fa-rocket"></i><h3>Évolution</h3><p>Possibilité
+                        d'embauche ou de collaboration à long terme.</p></div>
+            </div>
+        </section>
+
+        <!-- ÉTAPES DU RECRUTEMENT -->
+        <section class="extra" id="etapes">
+            <h2>Comment ça se passe ?</h2>
+            <div class="steps">
+                <div class="step"><i class="fas fa-file-pen"></i><h3>1.
+                        Candidature</h3><p>Remplissez le formulaire, puis
+                        envoyez votre CV par email.</p></div>
+                <div class="step"><i class="fas fa-magnifying-glass"></i><h3>2.
+                        Étude du dossier</h3><p>Notre équipe examine votre
+                        profil et votre portfolio.</p></div>
+                <div class="step"><i class="fas fa-comments"></i><h3>3.
+                        Entretien</h3><p>Échange avec l'équipe pour parler de
+                        vos projets.</p></div>
+                <div class="step"><i class="fas fa-handshake"></i><h3>4.
+                        Réponse</h3><p>Nous vous donnons notre décision par
+                        WhatsApp ou email.</p></div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="extra" id="faq">
+            <h2>Questions fréquentes</h2>
+            <details class="faq-item"><summary>Faut-il un diplôme pour postuler
+                    ?</summary><p>Non, un portfolio ou des projets réalisés
+                    comptent autant que le diplôme.</p></details>
+            <details class="faq-item"><summary>Acceptez-vous les stagiaires
+                    ?</summary><p>Oui, précisez-le dans votre lettre de
+                    motivation.</p></details>
+            <details class="faq-item"><summary>Combien de temps pour avoir une
+                    réponse ?</summary><p>En général sous une à deux semaines
+                    après l'envoi de votre CV.</p></details>
+            <details class="faq-item"><summary>Comment devenir partenaire
+                    ?</summary><p>Choisissez « Devenir Partenaire » plus haut et
+                    remplissez le formulaire.</p></details>
+        </section>
+
+        <!-- BOUTON WHATSAPP FLOTTANT -->
+        <a class="wa-float" href="https://wa.me/243856178369" target="_blank"
+            rel="noopener" aria-label="Discuter sur WhatsApp"><i
+                class="fab fa-whatsapp"></i></a>
+
         <!-- MODAL FORMULAIRE -->
-        <div class="modal" id="formModal">
+        <div class="modal" id="formModal" role="dialog" aria-modal="true"
+            aria-labelledby="modalTitle">
             <div class="modal-content">
-                <i class="fas fa-times close-modal" onclick="closeModal()"></i>
+                <i class="fas fa-times close-modal" onclick="closeModal()"
+                    role="button" tabindex="0" aria-label="Fermer"
+                    onkeydown="if(event.key==='Enter')closeModal()"></i>
 
                 <div id="formSection">
                     <h2 id="modalTitle"
                         style="margin-bottom: 25px; font-family: 'Space Grotesk';">Candidature
                         Tech-Stone One</h2>
                     <form id="applyForm" onsubmit="handleApply(event)">
-                        <label>Nom complet</label>
-                        <input type="text" id="name" required>
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" required
+                            autocomplete="name">
 
-                        <label>Email professionnel</label>
-                        <input type="email" id="email" required>
+                        <label for="email">Email professionnel</label>
+                        <input type="email" id="email" required
+                            autocomplete="email">
 
-                        <label>Numéro de téléphone</label>
-                        <input type="tel" id="phone" required
+                        <label for="phone">Numéro de téléphone</label>
+                        <input type="tel" id="phone" required autocomplete="tel"
+                            pattern="\+?[0-9 ]{9,16}"
+                            title="Ex : +243 856 178 369"
                             placeholder="+243 ...">
 
-                        <label>Lettre de Motivation (PDG)</label>
+                        <label for="motivation">Lettre de Motivation
+                            (PDG)</label>
                         <textarea id="motivation" rows="4" required></textarea>
+
+                        <label class="consent"><input type="checkbox"
+                                id="consent" required>J'accepte que mes
+                            informations soient utilisées uniquement pour le
+                            traitement de ma candidature.</label>
 
                         <button type="submit" class="btn-apply"
                             style="width: 100%;">Candidature fournie</button>
@@ -325,8 +558,9 @@
                         1 Validée !</h2>
                     <p
                         style="margin-bottom: 25px; color: var(--text-dim);">Cliquez
-                        maintenant ci-dessous pour envoyer votre **Photo, CV et
-                        Lien Portfolio** par Email au PDG.</p>
+                        maintenant ci-dessous pour envoyer votre <strong>Photo,
+                            CV et
+                            Lien Portfolio</strong> par Email au PDG.</p>
                     <button class="btn-final" onclick="sendFilesEmail()"><i
                             class="fas fa-envelope"></i> Envoyer CV &
                         Profil</button>
@@ -334,7 +568,30 @@
             </div>
         </div>
 
-        <footer>
+        <footer id="contact">
+            <div class="footer-grid">
+                <div><h4>Tech-Stone One</h4><p>Développement web, design et
+                        IoT.</p></div>
+                <div><h4>Contact</h4>
+                    <a href="mailto:techstoneone@gmail.com"><i
+                            class="fas fa-envelope"></i>techstoneone@gmail.com</a>
+                    <a href="https://wa.me/243856178369" target="_blank"
+                        rel="noopener"><i class="fab fa-whatsapp"></i>+243 856
+                        178 369</a></div>
+                <div><h4>Liens</h4><a href="#projets">Projets</a><a
+                        href="#postuler">Postuler</a><a href="#faq">FAQ</a>
+                    <!-- Remplace chaque href="#" par ton vrai lien -->
+                    <div class="socials">
+                        <a href="#" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i
+                                class="fab fa-tiktok"></i></a>
+                    </div></div>
+            </div>
             <div
                 style="text-align:center; padding:20px; color:var(--text-dim); font-size:0.9rem; border-top:1px solid var(--border);">
                 &copy; 2026 Tech-Stone One. | Soyez l'un des nôtres.
@@ -344,13 +601,32 @@
         <script>
         let cur = 0;
         const slider = document.getElementById('mainSlider');
-        setInterval(() => { cur = (cur + 1) % 3; slider.style.transform = `translateX(-${cur * 33.33}%)`; }, 5000);
+        // ANCIEN : setInterval(() => { cur = (cur + 1) % 3; slider.style.transform = `translateX(-${cur * 33.33}%)`; }, 5000);
+        // NOUVEAU : slider avec points, pause au survol et respect de "réduire les animations"
+        const total = 3;
+        const dots = document.querySelectorAll('.slider-dots button');
+        let timer;
+        function goTo(i) {
+            cur = (i + total) % total;
+            slider.style.transform = `translateX(-${cur * (100 / total)}%)`;
+            dots.forEach((d, k) => d.classList.toggle('active', k === cur));
+        }
+        function stop() { clearInterval(timer); }
+        function play() {
+            stop();
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => goTo(cur + 1), 5000);
+        }
+        dots.forEach((d, k) => d.addEventListener('click', () => { goTo(k); play(); }));
+        slider.parentElement.addEventListener('mouseenter', stop);
+        slider.parentElement.addEventListener('mouseleave', play);
+        play();
 
         function switchSection(id) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.switch-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('section-' + id).classList.add('active');
-            event.target.classList.add('active');
+            // ANCIEN : event.target.classList.add('active');  (dépendait de la variable globale event)
+            document.querySelector(`.switch-btn[onclick*="'${id}'"]`).classList.add('active');
         }
 
         function openModal(title) {
@@ -358,9 +634,33 @@
             document.getElementById('formSection').style.display = 'block';
             document.getElementById('emailStep').style.display = 'none';
             document.getElementById('formModal').style.display = 'flex';
+            document.getElementById('applyForm').reset(); // efface l'ancienne candidature
+            document.body.style.overflow = 'hidden'; // bloque le scroll derrière
+            setTimeout(() => document.getElementById('name').focus(), 50);
         }
 
-        function closeModal() { document.getElementById('formModal').style.display = 'none'; }
+        // ANCIEN : function closeModal() { document.getElementById('formModal').style.display = 'none'; }
+        function closeModal() {
+            document.getElementById('formModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        // Fermer avec Échap ou en cliquant en dehors de la fenêtre
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+        document.getElementById('formModal').addEventListener('click', e => { if (e.target.id === 'formModal') closeModal(); });
+
+        // HAMBURGER
+        const burger = document.getElementById('burger');
+        const menu = document.getElementById('menu');
+        function toggleMenu(open) {
+            const o = open !== undefined ? open : !menu.classList.contains('open');
+            menu.classList.toggle('open', o);
+            burger.classList.toggle('open', o);
+            burger.setAttribute('aria-expanded', o);
+            burger.setAttribute('aria-label', o ? 'Fermer le menu' : 'Ouvrir le menu');
+        }
+        burger.addEventListener('click', () => toggleMenu());
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
 
         // WHATSAPP
         function handleApply(e) {
@@ -373,7 +673,7 @@
 
             const msg = `🚀 *NOUVEAU DOSSIER - TECH-STONE ONE* 🚀\n--------------------------\n👤 NOM : ${name}\n🎯 POSTE : ${poste}\n📱 TEL : ${phone}\n📧 EMAIL : ${email}\n\n📝 MOTIVATION :\n"${motivation}"\n--------------------------\nNote : Le candidat va maintenant envoyer ses fichiers par Email.`;
             
-            window.open(`https://wa.me/243856178369?text=${encodeURIComponent(msg)}`);
+            window.open(`https://wa.me/243856178369?text=${encodeURIComponent(msg)}`, '_blank');
             
             document.getElementById('formSection').style.display = 'none';
             document.getElementById('emailStep').style.display = 'block';
